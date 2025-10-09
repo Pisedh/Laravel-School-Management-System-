@@ -12,4 +12,10 @@ class Student extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['name','gender','date_of_birth', 'email', 'phone', 'address'];
     use HasFactory;
+
+    public function payments()
+{
+    return $this->hasMany(Payment::class, 'student_id');
+}
+
 }

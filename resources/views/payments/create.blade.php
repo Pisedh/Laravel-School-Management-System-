@@ -1,0 +1,75 @@
+@extends ('layout')
+@section('content')
+
+<div class="flex min-h-screen  justify-center items-center bg-gray-100 ">
+<div class="bg-white max-w-2xl p-9 w-full ">
+    <h1 class="text-2xl font-bold text-center">Payment Form</h1>
+    <form action="{{ route('payments.store') }}" method="POST" class="p-4 ">
+        @csrf
+       
+       {{-- 1 --}}
+       <div class="mb-4">
+            <label for="student_id" class="block text-sm font-medium text-gray-700">Student ID</label>
+           <select name="student_id" id="student_id" class=" w-full p-3 block border border-gray-300 rounded-md shadow-sm ">
+            @foreach ($students as $id=>$name)
+            <option value="{{$id}}">{{$name}}</option>
+                
+            @endforeach
+
+           </select>
+        </div>
+        {{-- 2 --}}
+        <div class="mb-4">
+            <label for="enrollment_id" class="block text-sm font-medium text-gray-700">Ennrollment ID</label>
+           <select name="enrollment_id" id="enrollment_id" class=" w-full p-3 block border border-gray-300 rounded-md shadow-sm ">
+           <option value="">---Select Student---</option>
+            @foreach ($enrollments as $id=>$name)  
+            <option value="{{$id}}">{{$name}}</option>
+                
+            @endforeach
+
+           </select>
+        </div>
+        <div class="mb-4">
+            <label for="amount" class="block text-sm font-medium text-gray-700">Amount</label>
+            <input type="number" name="amount" id="amount" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+        </div>
+        <div class="mb-4">
+            <label for="payment_method" class="block text-sm font-medium text-gray-700">Payment Method</label>
+           <select name="payment_method" id="payment_method" required class=" w-full p-3 block border border-gray-300 rounded-md shadow-sm ">
+                <option value="cash">Cash</option>
+                <option value="aba">Aba</option>
+                <option value="acelida">Acelida</option>
+                <option value="wing">Canadia</option>
+                <option value="canadia">Wing</option>
+                {{-- ['cash','aba','acelida','wing','canadia'])->default( --}}
+           </select>
+        </div>
+        <div class="mb-4">
+            <label for="payment_date" class="block text-sm font-medium text-gray-700">Payment Date</label>
+            <input type="date" name="payment_date" id="payment_date" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+        </div>
+        <div class="mb-4">
+            <label for="academic_year" class="block text-sm font-medium text-gray-700">Academic Year</label>
+            <input type="text" name="academic_year" id="academic_year" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+        </div>
+        <div class="mb-4">
+            <label for="status" class="block text-sm font-medium text-gray-700">Payment Method</label>
+           <select name="status" id="status" required class=" w-full p-3 block border border-gray-300 rounded-md shadow-sm ">
+                <option value="paid">Paid</option>
+                <option value="pending">Pending</option>
+                <option value="failed">failed</option>
+                <option value="refund">Refund</option>
+            
+                {{-- $table->enum('status',['paid','pending','failed','refund'])->default('paid'); --}}
+           </select>
+        </div>
+        <div class="mb-4">
+            <label for="term" class="block text-sm font-medium text-gray-700">Term</label>
+            <input type="text" name="term" id="term" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+        </div>
+        
+        <button type="submit" class="inline-block px-4 py-2 bg-gray-700  text-white rounded hover:bg-black">Add Payment</button>
+    </form>
+</div>
+</div>
