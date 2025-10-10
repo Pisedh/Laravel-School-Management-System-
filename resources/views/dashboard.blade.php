@@ -34,6 +34,8 @@
 </div>
 </div>
 
+
+
 </div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -51,7 +53,13 @@
          <canvas id="smschart"></canvas>
     </div>
 
+
 </div>
+<div class="flex-1 p-4 w-full bg-white rounded-lg shadow-lg mt-10">
+    <h3 class="text-lg font-bold mb-4">💰 Monthly Salary Trend</h3>
+    <canvas id="salaryChart"></canvas>
+</div>
+
 
 
   
@@ -117,6 +125,53 @@
             }
         }   
     })  
+
+    // ================= Salary Chart ==================
+
+
+const salaryCtx = document.getElementById('salaryChart').getContext('2d');
+const salaryChart = new Chart(salaryCtx, {
+    type: 'line',
+    data: {
+        labels: @json($months),
+        datasets: [{
+            label: 'Total Salary (Payments)',
+            data: @json($totals),
+            borderColor: 'orange',
+            backgroundColor: 'rgba(255, 196, 117, 0.4)',
+            borderWidth: 2,
+            tension: 0.5,
+            fill: true,
+            pointRadius: 5,
+            pointHoverRadius: 8
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Salary Payments per Month ({{ date("Y") }})',
+                font: { size: 18 }
+            },
+            legend: {
+                position: 'top'
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: { display: true, text: 'Total Salary ($)' }
+            },
+            x: {
+                title: { display: true, text: 'Month' }
+            }
+        }
+    }
+});
+</script>
+
+
     
 
 

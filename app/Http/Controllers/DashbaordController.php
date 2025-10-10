@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Student;
 use App\Models\Teacher;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class DashbaordController extends Controller
 {
@@ -16,11 +19,35 @@ class DashbaordController extends Controller
 
   
     {
-         $totalStudents = Student::count();
-         $totalTeachers = Teacher::count();
-         $totalCourses = Course::count();
-         return view('dashboard', compact('totalStudents','totalTeachers', 'totalCourses'));
+     $totalStudents = Student::count();
+    $totalTeachers = Teacher::count();
+    $totalCourses = Course::count();
 
+    // Get payments grouped by month for current year
+    $salaryData = DB::table('payments')
+        ->select(
+            DB::raw('MONTH(payment_date) as month'),
+            DB::raw('SUM(amount) as total_salary')
+        )
+        ->whereYear('payment_date', date('Y'))
+        ->groupBy(DB::raw('MONTH(payment_date)'))
+        ->pluck('total_salary', 'month'); // key = month, value = total_salary
+
+    // Prepare all 12 months
+    $months = [];
+    $totals = [];
+    for ($i = 1; $i <= 12; $i++) {
+        $months[] = date('F', mktime(0, 0, 0, $i, 1)); // Month name
+        $totals[] = isset($salaryData[$i]) ? $salaryData[$i] : 0; // 0 if no data
+    }
+
+    return view('dashboard', compact(
+        'totalStudents',
+        'totalTeachers',
+        'totalCourses',
+        'months',
+        'totals'
+    ));
     }
 
     /**
