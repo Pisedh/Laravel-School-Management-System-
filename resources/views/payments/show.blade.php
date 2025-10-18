@@ -4,7 +4,7 @@
 
 <div class="bg-whtie shadow-2xl rounded-2xl overflow-x-auto  m-10 ">
     <table class="min-w-full divide-y divide-gray-200">
-        <h1 class="text-center font-bold text-black text-2xl p-5 ">Batches list</h1>
+        <h1 class="text-center font-bold text-black text-2xl p-5 ">Payment lists</h1>
 
         <thead class="bg-gray-50">
                     <tr>
@@ -24,27 +24,19 @@
         </thead>
         <tbody>
 
-            <tr>
-                 <td class="px-6 py-4">{{ $payment->student_id}}</td>
-                 <td class="px-6 py-4">{{ $payment->student->name}}</td>
-                    <td class="px-6 py-4">{{ $payment->enrollment_id}}</td>
-                    <td class="px-6 py-4">{{ $payment->amount}}</td>
-                    <td class="px-6 py-4">{{ $payment->payment_method}}</td>
-                    <td class="px-6 py-4">{{ $payment->payment_date }}</td>
-                    <td class="px-6 py-4">{{ $payment->status}}</td>
-                    <td class="px-6 py-4">{{ $payment->academic_year}}</td>
-                    <td class="px-6 py-4">{{ $payment->term}}</td>
-
-                   
-            </tr>
+        <tr>
+            <td class="px-6 py-4">{{ $payments->id }}</td>
+            <td class="px-6 py-4">{{ $payments->student_id }}</td>
+            <td class="px-6 py-4">{{ $payments->student->name ?? 'Unknown' }}</td>
+            <td class="px-6 py-4">{{ $payments->enrollment_id }}</td>
+            <td class="px-6 py-4">{{ $payments->amount }}</td>
+            <td class="px-6 py-4">{{ $payments->payment_method }}</td>
+            <td class="px-6 py-4">{{ $payments->payment_date}}</td>
+            <td class="px-6 py-4">{{ $payments->status }}</td>
+            <td class="px-6 py-4">{{ $payments->academic_year }}</td>
+            <td class="px-6 py-4">{{ $payments->term }}</td>
+        </tr>
         </tbody>
     </table>
-
-
-
-
-
-
-
 </div>
 @endsection

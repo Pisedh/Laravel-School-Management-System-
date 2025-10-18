@@ -20,7 +20,7 @@
         <div class="bg-white shadow p-6 rounded-lg flex flex-col-1 items-center  justify-between">
             <h3 class="text-lg font-bold flex gap-6 items-center">
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#00000"><path d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z"/></svg>   
-                Teacher</h3>
+                Teachers</h3>
             <p class="text-2xl font-semibold">{{$totalTeachers}}</p>
 </div>
 
@@ -56,7 +56,7 @@
 
 </div>
 <div class="flex-1 p-4 w-full bg-white rounded-lg shadow-lg mt-10">
-    <h3 class="text-lg font-bold mb-4">💰 Monthly Salary Trend</h3>
+    <h3 class="text-lg font-bold mb-4"></h3>
     <canvas id="salaryChart"></canvas>
 </div>
 
@@ -142,8 +142,8 @@ const salaryChart = new Chart(salaryCtx, {
             borderWidth: 2,
             tension: 0.5,
             fill: true,
-            pointRadius: 5,
-            pointHoverRadius: 8
+            pointRadius: 6,
+            pointHoverRadius: 10
         }]
     },
     options: {

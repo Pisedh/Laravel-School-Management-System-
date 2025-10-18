@@ -47,7 +47,7 @@ class PaymentController extends Controller
     public function show(string $id)
     {
         $payments = Payment::find($id);
-        return view('payments.show')->with('flash_message', $payments);    }
+        return view('payments.show')->with('payments', $payments);    }
 
     /**
      * Show the form for editing the specified resource.
@@ -55,7 +55,7 @@ class PaymentController extends Controller
     public function edit(string $id)
     {
         $payments = Payment::find($id);
-        return view('payments.edit')->with(' payments', $payments);
+        return view('payments.edit')->with('payments', $payments);
     }
 
     /**

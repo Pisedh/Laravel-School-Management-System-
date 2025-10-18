@@ -30,6 +30,8 @@
 
            </select>
         </div>
+
+        {{-- edit section --}}
         <div class="mb-4">
             <label for="amount" class="block text-sm font-medium text-gray-700">Amount</label>
             <input type="number" name="amount" id="amount" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">

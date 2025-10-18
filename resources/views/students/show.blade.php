@@ -18,7 +18,7 @@
         <tbody>
 
             <tr>
-                 <td class="px-6 py-4">{{ $students->id }}</td>
+                    <td class="px-6 py-4">{{ $students->id }}</td>
                     <td class="px-6 py-4">{{ $students->name }}</td>
                     <td class="px-6 py-4">{{ $students->gender }}</td>  
                     <td class="px-6 py-4">{{ $students->date_of_birth }}</td>  
