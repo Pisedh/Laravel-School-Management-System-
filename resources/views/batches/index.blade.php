@@ -34,13 +34,13 @@
                 
 
                      <td class="px-6 py-6 flex gap-2">
-                <a href="{{route('batches.show' ,  $batch->id)}}" title="View Student"><button class="bg-green-700 p-2 rounded-xl text-white">View</button></a>
-                <a href="{{route ('batches.edit' , $batch->id)}}" title="edit stuent"><button class="bg-blue-400 p-2 rounded-xl text-white">Edit</button></a>
+                <a href="{{route('batches.show' ,  $batch->id)}}" title="View Student"><button class="bg-green-600 p-1 rounded-sm text-white cursor-pointer hover:bg-green-700 text-sm">View</button></a>
+                <a href="{{route ('batches.edit' , $batch->id)}}" title="edit stuent"><button class="bg-blue-600 p-1 rounded-sm text-white cursor-pointer hover:bg-blue-700 text-sm">Edit</button></a>
                 
                 <form action="{{url('batches/' .$batch->id)}} " method="POST" onsubmit="return confirm('Are you sure you want to delete this batch?');" >
         @csrf
         @method('DELETE')
-        <button type="submit" class="bg-red-500 p-2 text-white rounded-xl ">Delete</button>
+        <button type="submit" class="bg-red-600 p-1 rounded-sm text-white cursor-pointer hover:bg-red-700 text-sm">Delete</button>
 
         
     </form>
