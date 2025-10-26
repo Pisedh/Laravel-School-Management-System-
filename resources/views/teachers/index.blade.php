@@ -32,13 +32,13 @@
                     <td class="px-6 py-4">{{ $item->address}}</td>
 
                      <td class="px-6 py-6 flex gap-2">
-                <a href="{{route('teachers.show' ,  $item->id)}}" title="View teacher"><button class="bg-green-700 p-2 rounded-xl text-white">View</button></a>
-                <a href="{{route ('teachers.edit' , $item->id)}}" title="edit teacher"><button class="bg-blue-400 p-2 rounded-xl text-white">Edit</button></a>
+                <a href="{{route('teachers.show' ,  $item->id)}}" title="View teacher"><button class="bg-green-600 p-1 rounded-sm text-white cursor-pointer hover:bg-green-700 text-sm">View</button></a>
+                <a href="{{route ('teachers.edit' , $item->id)}}" title="edit teacher"><button class="bg-blue-600 p-1 rounded-sm text-white cursor-pointer hover:bg-blue-700 text-sm">Edit</button></a>
                 
-                <form action="{{url('teachers/' .$item->id)}} " method="POST" onsubmit="return confirm('Are you sure you want to delete this Teacher?');" class="">
+                <form action="{{url('teachers/' .$item->id)}} " method="POST" onsubmit="return confirm('Are you sure you want to delete this Teacher?');" class="bg-red-600 p-1 rounded-sm text-white cursor-pointer hover:bg-red-700 text-sm">
         @csrf
         @method('DELETE')
-        <button type="submit" class="bg-red-500 p-2 text-white rounded-xl ">Delete</button>
+        <button type="submit" class="">Delete</button>
 
         
     </form>

@@ -40,7 +40,7 @@
             <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
             <input type="text" name="address" id="address" value="{{$teachers->address}}"   class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"></input>
         </div>
-        <button type="submit" class="inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Update</button>
+        <button type="submit" class="inline-block px-4 py-2 bg-gray-600 cursor-pointer text-white rounded hover:bg-black">Update</button>
     </form>
 </div>
 </div>
